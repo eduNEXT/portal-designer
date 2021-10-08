@@ -57,7 +57,7 @@ jobs:
           --target-branch="${{ env.target_branch }}" --base-branch-name="upgrade-python-requirements" \
           --commit-message="chore: Updating Python Requirements" --pr-title="Python Requirements Update" \
           --pr-body="Python requirements update.Please review the [changelogs](https://openedx.atlassian.net/wiki/spaces/TE/pages/1001521320/Python+Package+Changelogs) for the upgraded packages." \
-          --user-reviewers="" --team-reviewers="arbi-bom" --delete-old-pull-requests
+          --user-reviewers="" --team-reviewers="masters-devs-cosmonauts" --delete-old-pull-requests
 
       - name: Send success notification
         if: ${{ success() }}
@@ -68,7 +68,7 @@ jobs:
           username: ${{secrets.EDX_SMTP_USERNAME}}
           password: ${{secrets.EDX_SMTP_PASSWORD}}
           subject: Upgrade python requirements workflow execution completed in ${{github.repository}}
-          to: masters-requirements-update@edx.opsgenie.net
+          to: jawayriahashmi@gmail.com
           from: github-actions <github-actions@edx.org>
           body: Upgrade python requirements workflow executed in ${{github.repository}} and created this PR "github.com/${{ github.repository }}/pulls/${{steps.pr.outputs.pr_number}}. For details see "github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
@@ -81,6 +81,6 @@ jobs:
           username: ${{secrets.EDX_SMTP_USERNAME}}
           password: ${{secrets.EDX_SMTP_PASSWORD}}
           subject: Upgrade python requirements workflow failed in ${{github.repository}}
-          to: masters-requirements-update@edx.opsgenie.net
+          to: jawayriahashmi@gmail.com
           from: github-actions <github-actions@edx.org>
           body: Upgrade python requirements workflow failed in ${{github.repository}}. For details see "github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
